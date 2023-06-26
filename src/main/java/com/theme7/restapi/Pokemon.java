@@ -1,12 +1,12 @@
 package com.theme7.restapi;
 
-public class Name {
+public class Pokemon {
 
     private int id;
     private String name;
     private String nickname;
 
-    public Name(int no, String name, String nickname) {
+    public Pokemon(int no, String name, String nickname) {
         this.id = no;
         this.name = name;
         this.nickname = nickname;

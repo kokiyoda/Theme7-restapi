@@ -4,7 +4,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class NameCreateForm {
+public class PokemonUpdateForm {
+
     @Min(1)
     int id;
 
@@ -16,7 +17,7 @@ public class NameCreateForm {
     String nickname;
 
 
-    public NameCreateForm(int id, String name, String nickname) {
+    public PokemonUpdateForm(int id, String name, String nickname) {
         this.id = id;
         this.name = name;
         this.nickname = nickname;
