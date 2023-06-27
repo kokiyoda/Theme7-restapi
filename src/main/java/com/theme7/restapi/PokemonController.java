@@ -16,13 +16,13 @@ public class PokemonController {
 
 
     @GetMapping("/pokemons/{id}")
-    public Pokemon getPokemons(@PathVariable("id")@Min(1) int id){
+    public Pokemon getPokemons(@PathVariable("id") int id){
         return new Pokemon(id,"フシギダネ","ばなばな");
     }
 
     @PostMapping("/pokemons")
-    public ResponseEntity<Map<String, String>> create(@RequestBody @Valid PokemonCreateForm form) {
-        URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
+    public ResponseEntity<Map<String, String>> create(@RequestBody @Valid PokemonCreateForm form, UriComponentsBuilder uriBuilder) {
+        URI url = uriBuilder
                 .path("/pokemons/{id}")
                 .build()
                 .toUri();
@@ -30,12 +30,12 @@ public class PokemonController {
     }
 
     @PatchMapping("/pokemons/{id}")
-    public ResponseEntity<Map<String,String>> update(@PathVariable("id")@Min(1) int id, @RequestBody @Valid PokemonUpdateForm form){
+    public ResponseEntity<Map<String,String>> update(@PathVariable("id") int id, @RequestBody @Valid PokemonUpdateForm form){
         return ResponseEntity.ok(Map.of("massage","nickname successfully updated"));
     }
 
     @DeleteMapping("/pokemons/{id}")
-    public ResponseEntity<Map<String, String>> delete(@PathVariable("id")@Min(1) int id){
+    public ResponseEntity<Map<String, String>> delete(@PathVariable("id") int id){
         return ResponseEntity.ok(Map.of("massage","poke successfully deleted"));
     }
 }
